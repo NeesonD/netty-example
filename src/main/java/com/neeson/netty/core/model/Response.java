@@ -32,4 +32,18 @@ public class Response {
      */
     private int stateCode = ResultCode.SUCCESS;
 
+    public Response() {
+    }
+
+    public Response(Request message) {
+        this.module = message.getModule();
+        this.cmd = message.getCmd();
+    }
+
+    public Response(short module, short cmd, byte[] data){
+        this.module = module;
+        this.cmd = cmd;
+        this.data = data;
+    }
+
 }
