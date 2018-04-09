@@ -6,6 +6,7 @@ import com.neeson.netty.core.model.Request;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ import java.util.List;
  * 命令号2字节
  * 长度4字节(数据部分占有字节数量)
  */
+@Slf4j
 public class RequestDecoder extends ByteToMessageDecoder {
 
     /**
@@ -35,6 +37,7 @@ public class RequestDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> list) throws Exception {
+        log.debug("========>开始解码："+byteBuf.readableBytes());
         while (true){
             if (byteBuf.readableBytes() >= BASE_LENGTH){
                 int beginIndex;

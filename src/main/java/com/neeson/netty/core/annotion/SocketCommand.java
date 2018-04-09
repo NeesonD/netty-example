@@ -1,6 +1,5 @@
 package com.neeson.netty.core.annotion;
 
-import javax.xml.bind.annotation.XmlAttachmentRef;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
